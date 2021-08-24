@@ -15,12 +15,15 @@ Param
 
 )
 
+#check the VPN is connected on not, intead of range 10* you can put your VPN ip address, and also if you are running this on remote server you can remove this check.
+
 $checkconn = Get-NetIPAddress -IPAddress 10*
 if ( ! $checkconn ){
     Write-Host "Please connect to VPN to proceed" -ForegroundColor red
     Write-Host "Exiting the current execution..." -ForegroundColor red
     exit;
 }
+
 # Split the parameter value array into strings
 $user = ($users -split ',').Trim()
 
